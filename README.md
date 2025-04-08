@@ -3,13 +3,16 @@
 Lo primero sera la creacion en firebase de una estructura de datos
 Despues consumir estos datos para ver como se devuelven y como transformarlos para despues mostrarlos
 
-## 08/04/2025
+## 07/04/2025 01/04/2025
 Firebase integrado en el proyecto
 Integración continua implementada
-BBDD pendiente de insertar estructura y datos
+Hosting funcionando
+Errores previos medio solucionados
+esta semana -> 
+                Auth sin implementar
+                BBDD pendiente de insertar estructura y datos
+                Primeras peticiones para transformar datos
 
-Hosting pendiente de revisar
-Auth sin implementar
 
 
 
