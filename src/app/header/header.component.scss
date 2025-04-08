@@ -1,0 +1,29 @@
+@import 'src/styles.scss';
+
+*{
+    background-color: $background;
+}
+button{
+    background-color: $detalles;
+    color: $background;
+    border: 0;
+}
+nav{
+    background-color: $background;
+    color: $text;
+    border: 0;
+}
+nav a{
+    color: $text;
+}
+
+.bg-button{
+    background-color: $detalles;
+    color: $background;
+    border: 0;
+}
+.bg-button-orange{
+    background-color: $button;
+    color: $background;
+    border: 0;
+}

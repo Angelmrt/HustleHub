@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+$background: rgba(239, 233, 247, 1);
+$button: rgba(232, 93, 16, 1);
+$icons: rgba(64, 72, 222, 1);
+$detalles: rgba(37, 104, 238, 1);
+$text: rgba(0, 0, 0, 1);
+
+*{
+    background-color: $background;
+}
