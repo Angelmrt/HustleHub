@@ -1,3 +1,12 @@
+# Info
+## First Steps 
+Lo primero sera la creacion en firebase de una estructura de datos
+Despues consumir estos datos para ver como se devuelven y como transformarlos para despues mostrarlos
+
+
+
+
+
 # HustleHub
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.9.
