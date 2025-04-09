@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeaturesModule } from './features/features.module';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -11,14 +13,17 @@ import { FeaturesModule } from './features/features.module';
   declarations: [
     AppComponent,
    
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FeaturesModule
+    FeaturesModule,
+    NgbModalModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
