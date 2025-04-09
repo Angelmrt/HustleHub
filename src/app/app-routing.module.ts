@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { HomeComponent } from './features/home/home.component';
+import { NotfoundComponent} from './shared/notfound/notfound.component'; ;
 
 const routes: Routes = [
-  { path: '', component: AppComponent, pathMatch: 'full' }, // Asigna el componente correctamente
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '**', component: NotfoundComponent, },
+
 ];
 
 @NgModule({

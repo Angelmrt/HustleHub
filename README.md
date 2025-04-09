@@ -9,6 +9,8 @@ done ->
         Integración continua implementada
         Despliegue Continuo ok
         Hosting funcionando
+        Estructura correcta del proyecto 
+        Ruta para not Found Page (404)
 esta semana -> 
                 Auth sin implementar
                 BBDD pendiente de insertar estructura y datos
