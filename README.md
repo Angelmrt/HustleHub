@@ -11,6 +11,7 @@ done ->
         Hosting funcionando
         Estructura correcta del proyecto 
         Ruta para not Found Page (404)
+        Migración a angular 16 
 esta semana -> 
                 Auth sin implementar
                 BBDD pendiente de insertar estructura y datos
