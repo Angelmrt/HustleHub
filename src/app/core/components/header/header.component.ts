@@ -1,5 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { GenericModalComponent } from '../generic-modal/generic-modal.component';
+import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,18 +9,23 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HeaderComponent implements OnInit {
 
-  @ViewChild('LoginModal', { static: true }) loginModal : TemplateRef<any> | null = null;
-  public modalRef: NgbModalRef | null = null;
+  @ViewChild('modalHost') modalHost!: GenericModalComponent;
 
 
-  constructor(private modalservice : NgbModal , ) { }
+
+  constructor(private modalService: NgbModal ) { }
 
   ngOnInit(): void {
   }
-
-  openmodal(){
-    this.modalRef = this.modalservice.open(this.loginModal, { size: 'lg', backdrop: 'static' });
-
+  openmodal() {
+    this.modalService.open(LoginComponent, {
+      centered: true, // opcional
+      size: 'md',     // 'sm' | 'md' | 'lg' | 'xl'
+      backdrop: true, 
+      keyboard: true,
+      windowClass:'no-border-modal'
+    });
   }
+
 
 }

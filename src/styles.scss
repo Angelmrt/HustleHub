@@ -5,6 +5,17 @@ $icons: rgba(64, 72, 222, 1);
 $detalles: rgba(37, 104, 238, 1);
 $text: rgba(0, 0, 0, 1);
 
-*{
+body {
+    overflow-x: hidden;
     background-color: $background;
-}
+  }
+
+.no-border-modal .modal-content {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+  }
+  
+  .no-border-modal .modal-dialog {
+    box-shadow: none !important;
+  }
