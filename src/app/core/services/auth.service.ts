@@ -5,13 +5,29 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup, onAuthStateChanged, User
 } from '@angular/fire/auth';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private auth: Auth) {}
+  private currentUserSubject = new BehaviorSubject<User | null>(null);
+  public currentUser$ = this.currentUserSubject.asObservable();
+
+  constructor(private auth: Auth) {
+    onAuthStateChanged(this.auth, user => {
+      this.currentUserSubject.next(user);
+    });
+  }
+
+  getCurrentUser(): User | null {
+    return this.currentUserSubject.value;
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.currentUserSubject.value;
+  }
 
   login(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password);

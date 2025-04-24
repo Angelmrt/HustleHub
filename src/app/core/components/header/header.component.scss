@@ -1,8 +1,5 @@
 @import 'src/styles.scss';
 
-*{
-    background-color: $background;
-}
 
 
 #login{
@@ -15,7 +12,7 @@ input{
 
 
 nav{
-    background-color: $background;
+   
     color: $text;
     border: 0;
 }

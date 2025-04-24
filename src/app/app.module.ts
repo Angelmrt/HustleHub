@@ -18,8 +18,8 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), // ✅ Función directa
-    provideAuth(() => getAuth()), // ✅ Igual
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), 
+    provideAuth(() => getAuth()), 
     AppRoutingModule,
     HttpClientModule,
     FeaturesModule,
