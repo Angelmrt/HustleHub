@@ -1,8 +1,9 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef,NgbOffcanvas,NgbOffcanvasRef } from '@ng-bootstrap/ng-bootstrap';
 import { GenericModalComponent } from '../generic-modal/generic-modal.component';
 import { LoginComponent } from '../login/login.component';
 import { AuthService } from '../../services/auth.service'; 
+import { UserPanelComponent } from '../user-panel/user-panel.component';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    public authService: AuthService 
+    public authService: AuthService ,
+    private offcanvasService: NgbOffcanvas
   ) {}
  
 
@@ -32,6 +34,11 @@ export class HeaderComponent implements OnInit {
       windowClass:'no-border-modal'
     });
   }
-
+  openUserPanel() {
+    const ref: NgbOffcanvasRef = this.offcanvasService.open(UserPanelComponent, {
+      position: 'end'
+    });
+    ref.componentInstance.offcanvasRef = ref;
+  }
 
 }

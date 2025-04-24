@@ -1,28 +1,28 @@
 <header>
-  <div class="container-fluid">
-    <div class="row justify-content-spacebetween text-center align-items-center mt-3">
+  <div class="container">
+    <div class="row justify-content-between align-items-center mt-3 text-center">
 
       <!-- Logo -->
-      <div class="col">
+      <div class="col-auto">
         <img src="../../assets/Logo.png" alt="Logo_HustleHub" width="80">
       </div>
 
       <!-- Navegación -->
       <div class="col">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg justify-content-center">
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
               aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
               <ul class="navbar-nav">
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">My Events</a>
+                  <a class="nav-link" href="#">Hot Events</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">About Us</a>
@@ -44,13 +44,15 @@
         </nav>
       </div>
 
-      <!-- Botón login / usuario logueado -->
-      <div class="col">
-        <div *ngIf="authService.currentUser$ | async as user; else loginButton"
-             class="d-flex align-items-center justify-content-end gap-2">
-          <span class="fw-bold">{{ user.displayName || user.email }}</span>
-          <button class="btn btn-danger btn-sm" (click)="authService.logout()">Salir</button>
-        </div>
+      <!-- Login o icono usuario -->
+      <div class="col-auto d-flex align-items-center justify-content-end">
+        <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+          <button class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center"
+                  style="width: 50px; height: 50px;"
+                  (click)="openUserPanel()">
+            <i class="fas fa-user text-white"></i>
+          </button>
+        </ng-container>
 
         <ng-template #loginButton>
           <button type="button" class="btn btn-primary btn-lg" (click)="openmodal()">Log In</button>
