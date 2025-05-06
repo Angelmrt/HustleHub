@@ -1,15 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
-$background: rgba(239, 233, 247, 1);
-$button: rgba(232, 93, 16, 1);
-$icons: rgba(64, 72, 222, 1);
-$detalles: rgba(37, 104, 238, 1);
-$text: rgba(0, 0, 0, 1);
+@forward '_variables';
+@use 'variables' as *;
 
+
+
+
+*¨{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
     overflow-x: hidden;
-    background-color: $background;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    font-size: 16px;
+    color: $text-color;
+    background-color: $background-color;
+    margin: 0;
+    padding: 0;
   }
-
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: $text-color;
+    margin: 0 0 1rem 0;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: $text-secondary-color;
+  }
+  
+  // Botones
+  button, .btn {
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  // Navbar
+  header .navbar-nav .nav-link {
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    color: $text-color;
+  
+    &:hover {
+      color: $accent-color;
+    }
+  }
 .no-border-modal .modal-content {
     border: none !important;
     box-shadow: none !important;

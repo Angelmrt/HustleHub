@@ -10,6 +10,8 @@ import { CoreModule } from './core/core.module';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -18,8 +20,9 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), 
-    provideAuth(() => getAuth()), 
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
     AppRoutingModule,
     HttpClientModule,
     FeaturesModule,

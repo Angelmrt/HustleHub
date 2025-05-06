@@ -1,27 +1,105 @@
-@import 'src/styles.scss';
+@use 'styles' as *;
 
-
-
-#login{
-    background-color: $detalles;
+* {
+  color: $text-color;
 }
 
-input{
-    background-color: aliceblue;
+header, .navbar {
+  margin: 0;
+  padding-top: 0;
 }
 
+header {
+  background-color: $background-color;
+  color: $text-color;
+  margin: 0;
 
-nav{
-   
-    color: $text;
-    border: 0;
-}
-nav a{
-    color: $text;
-}
+  a {
+    color: $text-color;
 
-.bg-button{
-    background-color: $detalles;
-    color: $background;
-    border: 0;
+    &:hover {
+      color: $accent-color;
+      text-decoration: none;
+    }
+  }
+
+  #login {
+    color: $accent-color;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .hover-dropdown {
+    position: relative;
+
+    &:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-toggle::after {
+      transition: transform 0.2s ease;
+    }
+
+    &:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; // Alineado justo debajo del botón
+    transform: translateY(10px); // Baja suavemente desde arriba
+    background-color: $background-color;
+    border: none;
+    min-width: 12rem;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    border-radius: 0.375rem;
+
+    .dropdown-item {
+      color: $text-color;
+      padding: 0.5rem 1rem;
+
+      &:hover,
+      &:focus {
+        background-color: lighten($background-color, 5%);
+        color: $text-color;
+      }
+
+      &:active {
+        background-color: lighten($background-color, 8%);
+      }
+    }
+  }
+}
+.custom-login-btn {
+  background-color: $accent-color;
+  color: $text-color;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: lighten($accent-color, 10%);
+    color: $text-color;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($accent-color, 0.5);
+  }
 }

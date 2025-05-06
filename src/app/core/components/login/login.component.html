@@ -1,40 +1,37 @@
 <div class="login-wrapper">
-    <h2 class="text-center mb-4">Iniciar Sesión</h2>
-  
-    <form (ngSubmit)="onLogin()" class="form-box">
-      <div class="form-group mb-3">
-        <input
-          type="email"
-          [(ngModel)]="email"
-          name="email"
-          class="form-control"
-          placeholder="Correo electrónico"
-          required />
-      </div>
-  
-      <div class="form-group mb-3">
-        <input
-          type="password"
-          [(ngModel)]="password"
-          name="password"
-          class="form-control"
-          placeholder="Contraseña"
-          required />
-      </div>
-  
-      <button type="submit" class="btn btn-primary w-100 mb-2">Entrar</button>
-      <button type="button" (click)="onLoginGoogle()" class="btn btn-outline-danger w-100 mb-3">
-        Iniciar sesión con Google
-      </button>
-  
-      <hr />
-  
-      <p class="text-center mb-2">¿No tienes cuenta?</p>
-      <button type="button" class="btn btn-secondary w-100" (click)="onRegister()">Registrarse</button>
-  
-      <div *ngIf="error" class="text-danger mt-3 text-center">{{ error }}</div>
-    </form>
-  </div>
-  
-  
-  
+  <h2 class="text-center mb-4 custom-title">Iniciar Sesión</h2>
+
+  <form (ngSubmit)="onLogin()" class="form-box">
+    <div class="form-group mb-3">
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        class="form-control custom-input"
+        placeholder="Correo electrónico"
+        required />
+    </div>
+
+    <div class="form-group mb-3">
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        class="form-control custom-input"
+        placeholder="Contraseña"
+        required />
+    </div>
+
+    <button type="submit" class="btn custom-accent-btn w-100 mb-2">Entrar</button>
+    <button type="button" (click)="onLoginGoogle()" class="btn custom-outline-btn w-100 mb-3">
+      Iniciar sesión con Google
+    </button>
+
+    <hr />
+
+    <p class="text-center mb-2 custom-muted">¿No tienes cuenta?</p>
+    <button type="button" class="btn custom-register-btn w-100" (click)="onRegister()">Registrarse</button>
+
+    <div *ngIf="error" class="text-danger mt-3 text-center">{{ error }}</div>
+  </form>
+</div>

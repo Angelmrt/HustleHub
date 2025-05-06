@@ -1,37 +1,95 @@
+@use 'styles' as *;
+
 .login-wrapper {
-    padding: 2rem;
-    max-width: 400px;
-    margin: auto;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+  padding: 2rem;
+  max-width: 400px;
+  margin: auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.form-box input {
+  border-radius: 0.5rem;
+}
+
+button {
+  border-radius: 0.5rem;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px lighten($color-concrete-grey, 20%);
+  border-color: lighten($color-concrete-grey, 20%);
+}
+
+.form-control {
+  background-color: transparent;
+  border: 1px solid $color-concrete-grey;
+  color: $text-color;
+
+  &::placeholder {
+    color: lighten($color-concrete-grey, 15%);
   }
-  
-  .form-box input {
-    border-radius: 0.5rem;
-  }
-  
-  button {
-    border-radius: 0.5rem;
-  }
-  input:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #ccc; 
-    border-color: #ccc;
-  }
-  .form-control:focus {
+
+  &:focus {
     box-shadow: none;
-    border-color: #999;
+    border-color: lighten($color-concrete-grey, 20%);
   }
-  :host ::ng-deep .modal-content {
-    background-color: #fff;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.custom-title {
+  color: $text-color;
+}
+
+.custom-accent-btn {
+  background-color: $accent-color;
+  color: $text-color;
+  font-weight: bold;
+  border: none;
+
+  &:hover {
+    background-color: lighten($accent-color, 10%);
   }
-  
-  :host ::ng-deep .modal-dialog {
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
+}
+
+.custom-outline-btn {
+  border: 1px solid $accent-color;
+  color: $accent-color;
+  background-color: transparent;
+  font-weight: bold;
+
+  &:hover {
+    background-color: rgba($accent-color, 0.1);
   }
+}
+
+.custom-register-btn {
+  background-color: $color-concrete-grey;
+  color: $text-color;
+  font-weight: bold;
+
+  &:hover {
+    background-color: lighten($color-concrete-grey, 10%);
+  }
+}
+
+.custom-muted {
+  color: lighten($color-concrete-grey, 20%);
+  font-size: 0.9rem;
+}
+
+:host ::ng-deep .modal-content {
+  background-color: $background-color;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  color: $text-color;
+}
+
+:host ::ng-deep .modal-dialog {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
