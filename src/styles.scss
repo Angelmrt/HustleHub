@@ -63,6 +63,11 @@ body {
       color: $accent-color;
     }
   }
+  @media (max-width: 500px) {
+    header .navbar-nav .nav-link {
+      font-size: 0.75rem;
+    }
+  }
 .no-border-modal .modal-content {
     border: none !important;
     box-shadow: none !important;
