@@ -103,3 +103,9 @@ header {
     box-shadow: 0 0 0 2px rgba($accent-color, 0.5);
   }
 }
+@media (max-width: 500px) {
+  #loginButton{
+    font-size: 0.75rem;
+    text-align: center;
+  }
+}
