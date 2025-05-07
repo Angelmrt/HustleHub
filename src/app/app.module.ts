@@ -14,11 +14,13 @@ import { provideDatabase, getDatabase } from '@angular/fire/database';
 
 import { environment } from '../environments/environment';
 import { HeaderComponent } from './core/components/header/header.component';
+import { FooterComponent } from './core/components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

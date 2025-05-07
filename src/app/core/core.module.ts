@@ -8,6 +8,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { CategorySliderComponent } from './components/category-slider/category-slider.component';
 import { RandomEventsComponent } from './components/random-events/random-events.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { RandomEventsComponent } from './components/random-events/random-events.
         LoginComponent,
         UserPanelComponent,
         UserProfileComponent,
-        ChangePasswordComponent
+        ChangePasswordComponent,
   ],
   imports: [
     CommonModule,
