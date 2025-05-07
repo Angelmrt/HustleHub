@@ -1,0 +1,86 @@
+@use 'styles' as *;
+
+.container {
+  background-color: $background-color;
+  color: $text-color;
+
+  h2 {
+    color: $text-color;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    background-color: lighten($background-color, 3%);
+    border: 1px solid $text-secondary-color;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-img-top {
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1rem;
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: $text-color;
+        margin-bottom: 0.5rem;
+      }
+
+      .card-text {
+        font-size: 0.95rem;
+        color: $text-secondary-color;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+.pagination {
+  justify-content: center;
+  margin-top: 2rem;
+
+  .page-item {
+    margin: 0 2px;
+
+    .page-link {
+      background-color: transparent;
+      border: none;
+      color: $primary-color;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color:
+        $primary-color;
+        color:
+        $primary-color;
+      }
+
+      &.active,
+      &:focus,
+      &.active:focus {
+        background-color: 
+        $primary-color;
+        color: #000;
+        box-shadow: none;
+      }
+    }
+
+    &.disabled .page-link {
+      color: #888;
+    }
+  }
+}

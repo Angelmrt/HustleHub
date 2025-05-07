@@ -4,20 +4,30 @@
 
       <!-- Logo -->
       <div class="d-none d-md-block">
-        <img src="../../assets/icono.png" alt="Logo_HustleHub" width="50">
+        <a href="" routerLink="/">
+          <img src="../../assets/icono.png" alt="Logo_HustleHub" width="50">
+        </a>
       </div>
 
-      <!-- Navegación -->
+     
       <nav class="flex-grow-1">
         <ul class="navbar-nav d-flex flex-row justify-content-center flex-wrap m-0 p-0 gap-2">
-          <li class="nav-item me-2"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item me-2"><a class="nav-link" href="#">Hot Events</a></li>
-          <li class="nav-item me-2"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item me-2">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" routerLink="/hot-events">Hot Events</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" routerLink="/about">About Us</a>
+          </li>
           <li class="nav-item dropdown hover-dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink">Categories</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li *ngFor="let category of categories">
-                <a class="dropdown-item" href="#">{{ category | titlecase }}</a>
+                <a class="dropdown-item" [routerLink]="['/categories', category]">
+                  {{ category | titlecase }}
+                </a>
               </li>
             </ul>
           </li>

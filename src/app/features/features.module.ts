@@ -5,6 +5,8 @@ import { HeaderComponent } from '../core/components/header/header.component';
 import { HeroComponent } from '../core/components/hero/hero.component';
 import { CategorySliderComponent } from '../core/components/category-slider/category-slider.component';
 import { RandomEventsComponent } from '../core/components/random-events/random-events.component';
+import { AboutComponent } from './about/about.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { RandomEventsComponent } from '../core/components/random-events/random-e
     HomeComponent,
     HeroComponent,
     CategorySliderComponent,
-    RandomEventsComponent
+    RandomEventsComponent,
+    AboutComponent,
+    CategoryDetailComponent
   ],
   imports: [
     CommonModule

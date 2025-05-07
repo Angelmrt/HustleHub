@@ -32,4 +32,8 @@ export class CategoriesService {
     const snapshot = await get(child(ref(this.db), 'events'));
     return snapshot.exists() ? snapshot.val() : {};
   }
+  async getEventsByCategory(categoryId: string): Promise<any[]> {
+    const snapshot = await get(child(ref(this.db), `events/${categoryId}/items`));
+    return snapshot.exists() ? Object.values(snapshot.val()) : [];
+  }
 }
