@@ -14,20 +14,22 @@ export class CategoriesService {
     deportes: 'fas fa-futbol',
     arte: 'fas fa-palette',
     comida: 'fas fa-utensils'
-    // añade más según tu JSON
+    
   };
 
   constructor(private db: Database) {}
 
-  // 🟢 Método principal: obtener nombres (claves de "events")
   async getCategoryKeys(): Promise<string[]> {
     const snapshot = await get(child(ref(this.db), 'events'));
     return snapshot.exists() ? Object.keys(snapshot.val()) : [];
   }
 
-  // 🟡 Método derivado: solo iconos, basados en las claves
   async getCategoryIcons(): Promise<string[]> {
     const keys = await this.getCategoryKeys();
     return keys.map((key) => this.iconMap[key.toLowerCase()] || 'fas fa-tag');
+  }
+  async getAllEvents(): Promise<any> {
+    const snapshot = await get(child(ref(this.db), 'events'));
+    return snapshot.exists() ? snapshot.val() : {};
   }
 }

@@ -1,0 +1,56 @@
+@use 'styles' as *;
+
+.recommended-wrapper {
+  background-color: $background-color;
+  width: 100%;
+}
+
+.recommended-title {
+  color: $text-color;
+  font-weight: bold;
+}
+
+.event-card {
+  background-color: $background-color;
+  border: 1px solid $text-secondary-color;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h4.event-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $text-color;
+    margin-bottom: 0.5rem;
+  }
+
+  .event-date {
+    color: $text-secondary-color;
+    font-size: 1rem;
+  }
+
+  .event-index {
+    font-size:5rem;
+    font-weight: bold;
+    color: $primary-color;
+    flex-shrink: 0;
+  }
+
+  .btn-accent {
+    background-color: $accent-color;
+    color: $text-color;
+    font-weight: bold;
+    border: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.4rem;
+
+    &:hover {
+      background-color: lighten($accent-color, 8%);
+    }
+  }
+}

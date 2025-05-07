@@ -7,18 +7,16 @@
   padding: 1rem 0;
 }
 
-// 🔸 Contenido centrado
 .category-slider-container {
   margin: 0 auto;
   text-align: center;
 }
 
-// 🔸 Iconos generales
 .category-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: $accent-color;
   padding: 1rem;
   border-radius: 1rem;
@@ -34,7 +32,6 @@
   }
 }
 
-// 🔸 Desktop layout
 @media (min-width: 992px) {
   .category-slider-desktop {
     display: flex;
@@ -44,7 +41,6 @@
   }
 }
 
-// 🔸 Slider (móvil/tablet)
 .category-slider {
   overflow-x: auto;
   scrollbar-width: none;

@@ -1,0 +1,31 @@
+<div class="recommended-wrapper">
+    <div class="container py-5">
+      <h2 class="text-center mb-4 recommended-title">Eventos Recomendados</h2>
+  
+      <div class="d-flex flex-column gap-3" *ngIf="randomEvents.length > 0; else noEvents">
+        <div *ngFor="let event of randomEvents; let i = index" class="event-card d-flex gap-4">
+          
+          <div class="event-index">{{ i + 1 }}</div>
+  
+          <div class="flex-grow-1">
+            <h4 class="event-title ">{{ event.title }}</h4>
+  
+            <div class="d-flex flex-wrap align-items-center justify-content-between mt-2">
+              <p class="mb-0 event-date">
+                <i class="fas fa-calendar-alt me-2"></i>
+                {{ event.eventDate | date: 'longDate' }}
+              </p>
+  
+              <button class="btn btn-accent mt-2 mt-sm-0">More Info</button>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+      <ng-template #noEvents>
+        <p class="text-center text-secondary">No se encontraron eventos.</p>
+      </ng-template>
+    </div>
+  </div>
+  

@@ -7,6 +7,7 @@ import { UserPanelComponent } from './components/user-panel/user-panel.component
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { CategorySliderComponent } from './components/category-slider/category-slider.component';
+import { RandomEventsComponent } from './components/random-events/random-events.component';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { CategorySliderComponent } from './components/category-slider/category-s
         LoginComponent,
         UserPanelComponent,
         UserProfileComponent,
-        ChangePasswordComponent,
+        ChangePasswordComponent
   ],
   imports: [
     CommonModule,
