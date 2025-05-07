@@ -1,0 +1,26 @@
+<!-- Fondo a full width -->
+<div class="category-slider-wrapper">
+    <div class="container category-slider-container">
+      
+      <div class="category-slider-desktop d-none d-lg-flex">
+        <div *ngFor="let icon of icons" class="category-icon">
+          <i [class]="icon"></i>
+        </div>
+      </div>
+  
+      <div
+        class="category-slider d-flex d-lg-none"
+        #slider
+        (mousedown)="onMouseDown($event)"
+        (touchstart)="onTouchStart($event)"
+        (touchmove)="onTouchMove($event)"
+        (touchend)="onTouchEnd()"
+      >
+        <div *ngFor="let icon of icons" class="category-icon me-3">
+          <i [class]="icon"></i>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  

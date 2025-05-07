@@ -1,0 +1,67 @@
+@use 'styles' as *;
+
+// 🔹 Fondo a todo el ancho
+.category-slider-wrapper {
+  width: 100%;
+  background-color: $background-color;
+  padding: 1rem 0;
+}
+
+// 🔸 Contenido centrado
+.category-slider-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+// 🔸 Iconos generales
+.category-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  color: $accent-color;
+  padding: 1rem;
+  border-radius: 1rem;
+  min-width: 80px;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  i {
+    color: inherit;
+  }
+}
+
+// 🔸 Desktop layout
+@media (min-width: 992px) {
+  .category-slider-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
+// 🔸 Slider (móvil/tablet)
+.category-slider {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  user-select: none;
+  cursor: grab;
+  gap: 1rem;
+
+  &.dragging {
+    cursor: grabbing;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-icon {
+    flex-shrink: 0;
+  }
+}

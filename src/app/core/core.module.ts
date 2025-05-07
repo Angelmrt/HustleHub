@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { CategorySliderComponent } from './components/category-slider/category-slider.component';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
         LoginComponent,
         UserPanelComponent,
         UserProfileComponent,
-        ChangePasswordComponent
+        ChangePasswordComponent,
   ],
   imports: [
     CommonModule,

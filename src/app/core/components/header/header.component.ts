@@ -1,10 +1,10 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { NgbModal, NgbModalRef,NgbOffcanvas,NgbOffcanvasRef } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgbModal, NgbOffcanvas, NgbOffcanvasRef } from '@ng-bootstrap/ng-bootstrap';
 import { GenericModalComponent } from '../generic-modal/generic-modal.component';
 import { LoginComponent } from '../login/login.component';
 import { AuthService } from '../../services/auth.service'; 
 import { UserPanelComponent } from '../user-panel/user-panel.component';
-import { Database, ref, get, child } from '@angular/fire/database';
+import { CategoriesService } from '../../services/categories.service'; // ✅ sin Category
 
 @Component({
   selector: 'app-header',
@@ -14,44 +14,37 @@ import { Database, ref, get, child } from '@angular/fire/database';
 export class HeaderComponent implements OnInit {
 
   @ViewChild('modalHost') modalHost!: GenericModalComponent;
-  categories: string[] = [];
-
+  categories: string[] = []; // ✅ usamos string[]
 
   constructor(
     private modalService: NgbModal,
-    public authService: AuthService ,
+    public authService: AuthService,
     private offcanvasService: NgbOffcanvas,
-    private db: Database
+    private categoriesService: CategoriesService
   ) {}
- 
 
   ngOnInit(): void {
-    const dbRef = ref(this.db);
-  get(child(dbRef, 'events')).then(snapshot => {
-    if (snapshot.exists()) {
-      const data = snapshot.val();
-      this.categories = Object.keys(data); // <- EXTRAEMOS LAS CLAVES
-    } else {
-      console.log('No categories found');
-    }
-  }).catch(error => {
-    console.error('Firebase error:', error);
-  });
+    this.loadCategories();
   }
-  openmodal() {
+
+  async loadCategories(): Promise<void> {
+    this.categories = await this.categoriesService.getCategoryKeys(); // ✅ usamos getCategoryKeys
+  }
+
+  openmodal(): void {
     this.modalService.open(LoginComponent, {
-      centered: true, 
-      size: 'md',     // 'sm' | 'md' | 'lg' | 'xl'
-      backdrop: true, 
+      centered: true,
+      size: 'md',
+      backdrop: true,
       keyboard: true,
-      windowClass:'no-border-modal'
+      windowClass: 'no-border-modal'
     });
   }
-  openUserPanel() {
+
+  openUserPanel(): void {
     const ref: NgbOffcanvasRef = this.offcanvasService.open(UserPanelComponent, {
       position: 'end'
     });
     ref.componentInstance.offcanvasRef = ref;
   }
-
 }
