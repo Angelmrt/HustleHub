@@ -1,0 +1,101 @@
+@use 'src/variables' as *;
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('../../../../assets/Hero.png') no-repeat center center / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: $background-color;
+
+  .glass-card {
+    background: rgba(16, 31, 36, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 2rem;
+    padding: 13rem 15rem;
+    max-width: 1800px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: auto;
+  }
+
+  .hero-title {
+    font-size: 10rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: 3px;
+    color: $text-color;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: $text-color;
+    opacity: 0.9;
+  }
+  @media (max-width: 1500px) {
+    .glass-card {
+      padding: 8rem 8rem;
+      max-width: 1200px;
+    }
+
+    .hero-title {
+      font-size: 7rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .glass-card {
+      padding: 8rem 8rem;
+      max-width: 1200px;
+    }
+
+    .hero-title {
+      font-size: 7rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .glass-card {
+      padding: 6rem 4rem;
+      max-width: 90%;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .glass-card {
+      width: 100%;
+      padding: 2.5rem 1rem;
+      border-radius: 1rem;
+      margin: 0 0.5rem;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+  }
+}

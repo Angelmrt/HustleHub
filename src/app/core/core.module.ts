@@ -7,6 +7,7 @@ import { UserPanelComponent } from './components/user-panel/user-panel.component
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
+
 @NgModule({
   declarations: [
   
