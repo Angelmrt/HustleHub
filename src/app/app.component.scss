@@ -1,6 +1,8 @@
+@use 'src/styles' as *;
 :host {
     display: block;
     margin: 0;
     padding: 0;
+    background-color: $background-color;
     font-family: Poppins sans-serif, sans-serif;
   }

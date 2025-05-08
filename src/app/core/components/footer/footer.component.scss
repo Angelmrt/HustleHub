@@ -1,7 +1,7 @@
 @use 'styles' as *;
 
 .footer {
-  background-color: $background-color;
+  background-color: darken($background-color, 10%);
   color: $primary-color;
   margin: 0;
   padding: 0;

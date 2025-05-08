@@ -3,7 +3,7 @@
 .hero {
   position: relative;
   height: 94vh;
-  background: url('../../../../assets/Hero.png') no-repeat center center / cover;
+  background: url('../../../../assets/cathero.png') no-repeat center center / cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-radius: 2rem;
-    padding: 13rem 15rem;
+    padding: 10rem 13rem;
     max-width: 1800px;
     border: 1px solid rgba(255, 255, 255, 0.03);
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);

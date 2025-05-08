@@ -3,7 +3,7 @@
 // 🔹 Fondo a todo el ancho
 .category-slider-wrapper {
   width: 100%;
-  background-color: $background-color;
+  background-color: darken($background-color, 10%);
   padding: 1rem 0;
 }
 

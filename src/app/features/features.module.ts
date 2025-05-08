@@ -7,12 +7,14 @@ import { CategorySliderComponent } from '../core/components/category-slider/cate
 import { RandomEventsComponent } from '../core/components/random-events/random-events.component';
 import { AboutComponent } from './about/about.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { CatheroComponent } from '../core/components/cathero/cathero.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     HeroComponent,
+    CatheroComponent,
     CategorySliderComponent,
     RandomEventsComponent,
     AboutComponent,

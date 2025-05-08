@@ -9,6 +9,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { CategorySliderComponent } from './components/category-slider/category-slider.component';
 import { RandomEventsComponent } from './components/random-events/random-events.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CatheroComponent } from './components/cathero/cathero.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
         LoginComponent,
         UserPanelComponent,
         UserProfileComponent,
-        ChangePasswordComponent,
+        ChangePasswordComponent
   ],
   imports: [
     CommonModule,
