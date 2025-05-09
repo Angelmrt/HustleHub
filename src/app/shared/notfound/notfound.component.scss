@@ -1,0 +1,16 @@
+@use 'src/styles' as *;
+
+h1{
+    color: $text-color;
+    font-size: 5rem;
+}
+a{
+    background-color: $accent-color;
+    border: none;
+    color: $text-color;
+
+}
+img{
+    width: 50%;
+}
+ 

@@ -1,6 +1,6 @@
 <div class="container py-5 event-detail-container" *ngIf="!isLoading && !isError; else loadingOrError">
-    <div class="card shadow-lg rounded-4 p-4">
-      <h2 class="text-center mb-4 text-primary">{{ event.title }}</h2>
+  <div class="card shadow-lg rounded-4 p-4">
+      <h2 class="text-center mb-4 ">{{ event.title }}</h2>
       
       <img [src]="event.image" class="img-fluid rounded-3 mb-4 mx-auto d-block event-image" [alt]="event.title" />
   
@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  
+
   <ng-template #loadingOrError>
     <div class="text-center py-5">
       <div *ngIf="isLoading" class="spinner-border text-primary" role="status"></div>
