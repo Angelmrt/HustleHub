@@ -56,4 +56,26 @@ export class CategoriesService {
 
     return Object.values(snapshot.val()).map((item: any) => ({ ...item, category: categoryId }));
   }
+  async getTopSubscribedEvents(limit: number = 10): Promise<any[]> {
+    const dbRef = ref(this.db);
+    const snapshot = await get(child(dbRef, 'events'));
+
+    if (!snapshot.exists()) {
+      return [];
+    }
+
+    const eventsData = snapshot.val();
+    const allEvents: any[] = [];
+
+    for (const category in eventsData) {
+      if (eventsData[category].items) {
+        const events = eventsData[category].items;
+        events.forEach((event: any) => allEvents.push(event));
+      }
+    }
+
+    return allEvents
+      .sort((a, b) => (b.subscriptions || 0) - (a.subscriptions || 0))
+      .slice(0, limit);
+  }
 }

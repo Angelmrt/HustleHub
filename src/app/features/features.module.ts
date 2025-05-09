@@ -10,6 +10,7 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
 import { CatheroComponent } from '../core/components/cathero/cathero.component';
 import { RouterModule } from '@angular/router';
 import { EventDetailComponent } from './event-detail/event-detail.component';
+import { HotEventsComponent } from './hotevents/hotevents.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
     AboutComponent,
     CategoryDetailComponent,
     EventDetailComponent,
+    HotEventsComponent,
   ],
   imports: [
     CommonModule,

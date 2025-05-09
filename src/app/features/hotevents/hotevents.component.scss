@@ -1,0 +1,110 @@
+@use 'styles' as *;
+
+// Color rosa personalizado (añádelo también a tu archivo de variables si usas uno)
+
+
+.container {
+  background-color: $background-color;
+  color: $text-color;
+
+  h2 {
+    color: $text-color;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .card-horizontal {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    background-color: $background-color-highlight; 
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+
+    
+
+    .card-img-left {
+      flex: 0 0 300px;
+      width: 25%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem;
+      overflow: hidden;
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: $primary-color;
+        margin-bottom: 0.5rem;
+      }
+
+      .card-text {
+        font-size: 0.95rem;
+        color: $text-secondary-color;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+
+        &.description {
+          max-height: 4.5em;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card-horizontal {
+      flex-direction: column;
+      height: auto;
+
+      .card-img-left {
+        width: 100%;
+        height: 200px;
+      }
+    }
+  }
+}
+
+.pagination {
+  justify-content: center;
+  margin-top: 2rem;
+
+  .page-item {
+    margin: 0 2px;
+
+    .page-link {
+      background-color: transparent;
+      border: none;
+      color: $primary-color;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $primary-color;
+        color: #000;
+      }
+
+      &.active,
+      &:focus,
+      &.active:focus {
+        background-color: $primary-color;
+        color: #000;
+        box-shadow: none;
+      }
+    }
+
+    &.disabled .page-link {
+      color: #888;
+    }
+  }
+}

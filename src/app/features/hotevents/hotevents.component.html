@@ -1,0 +1,57 @@
+<app-cathero [categoryId]="title"></app-cathero>
+<div class="container py-5">
+  
+    <div class="row g-4" *ngIf="pagedEvents.length > 0; else noEvents">
+      <div class="col-12" *ngFor="let event of pagedEvents">
+        <div class="card card-horizontal shadow-lg rounded-4 p-4 d-flex flex-row align-items-center position-relative">
+          <img 
+            [src]="event.image" 
+            class="card-img-left rounded-4 me-4" 
+            [alt]="event.title" 
+            style="width: 200px; height: 150px; object-fit: cover;"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ event.title }}</h5>
+            <p class="card-text">
+              <i class="fas fa-calendar-alt me-2"></i> 
+              {{ event.eventDate | date: 'longDate' }}
+            </p>
+            <p class="card-text description">
+              {{ event.description }}...
+            </p>
+            <p class="card-text">
+              <i class="fas fa-users me-2"></i> Suscripciones: {{ event.subscriptions }}
+            </p>
+            <!-- Enlace a la vista de detalle -->
+            <a 
+              [routerLink]="['/event', event.categoryId, event.id]" 
+              class="stretched-link"
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Paginación -->
+    <nav *ngIf="totalPages > 1" class="mt-4">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <button class="page-link" (click)="changePage(currentPage - 1)"><</button>
+        </li>
+        <li 
+          class="page-item" 
+          *ngFor="let page of [].constructor(totalPages); let i = index" 
+          [class.active]="currentPage === (i + 1)">
+          <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <button class="page-link" (click)="changePage(currentPage + 1)">></button>
+        </li>
+      </ul>
+    </nav>
+  
+    <ng-template #noEvents>
+      <p class="text-center">No hay eventos disponibles.</p>
+    </ng-template>
+  </div>
+  

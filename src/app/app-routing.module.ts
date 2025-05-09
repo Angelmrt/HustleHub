@@ -6,10 +6,12 @@ import { AboutComponent } from './features/about/about.component';
 import { CategoryDetailComponent } from './features/category-detail/category-detail.component';
 import { EventDetailComponent } from './features/event-detail/event-detail.component';
 import { InactividadComponent } from './shared/inactividad/inactividad.component';
+import { HotEventsComponent } from './features/hotevents/hotevents.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
+  { path: 'hot', component: HotEventsComponent },
   { path: 'inactividad' , component : InactividadComponent},
   { 
     path: 'categories/:categoryId', 
