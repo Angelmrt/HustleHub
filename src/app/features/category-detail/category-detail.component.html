@@ -15,6 +15,10 @@
           <p class="card-text description">
             {{ event.description  }}...
           </p>
+          <a 
+          [routerLink]="['/event', categoryId, event.id]" 
+          class="stretched-link"
+        ></a>
         </div>
       </div>
     </div>
@@ -49,3 +53,4 @@
     <p class="text-center text-secondary">No hay eventos en esta categoría.</p>
   </ng-template>
 </div>
+<router-outlet></router-outlet>

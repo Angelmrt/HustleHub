@@ -9,8 +9,17 @@ import { EventDetailComponent } from './features/event-detail/event-detail.compo
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
-  { path: 'categories/:categoryId', component: CategoryDetailComponent },
-  { path: 'event/:category/:id', component: EventDetailComponent },
+  { 
+    path: 'categories/:categoryId', 
+    component: CategoryDetailComponent,
+    children: [
+      { 
+        path: ':eventId', 
+        component: EventDetailComponent 
+      }
+    ]
+  },
+    { path: 'event/:category/:id', component: EventDetailComponent },
   { path: '**', component: NotfoundComponent }
 ];
 

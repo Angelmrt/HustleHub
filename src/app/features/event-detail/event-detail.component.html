@@ -7,7 +7,9 @@
       <p class="text-muted text-center">
         <i class="fas fa-calendar-alt me-2"></i>{{ event.eventDate | date: 'longDate' }}
       </p>
-      
+      <small>
+        {{event.eventDate}}
+      </small>
       <p class="lead ">{{ event.description }}</p>
   
       <div class="text-center mt-4">
