@@ -16,12 +16,14 @@ import { environment } from '../environments/environment';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { InactividadComponent } from './shared/inactividad/inactividad.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    InactividadComponent
   ],
   imports: [
     BrowserModule,

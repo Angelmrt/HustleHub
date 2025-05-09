@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IdleService } from './core/services/idle.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent  {
   title = 'HustleHub';
 
-  
+  constructor( private IdleService: IdleService){
+
+  }
 
   
 

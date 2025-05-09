@@ -1,0 +1,14 @@
+@use 'src/styles' as *;
+
+h1{
+    color: $text-color;
+    font-size: 5rem;
+}
+a{
+    border: none;
+
+}
+img{
+    width: 50%;
+}
+ 
