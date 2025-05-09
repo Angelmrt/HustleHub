@@ -1,0 +1,47 @@
+@use 'src/styles' as *;
+.event-detail-container {
+    color: $text-color;
+  
+    .text-primary {
+      color: $primary-color; // Título principal en Amber
+    }
+  
+    .card {
+      background: $background-color-highlight; // Glassmorphism efecto
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      color: $text-color;
+    }
+  
+    .event-image {
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  
+    .text-muted {
+      color: $text-secondary-color;
+    }
+  
+    .btn-primary {
+      background-color: $primary-color;
+      color: $background-color;
+      border: none;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  
+    a {
+      color: $accent-color;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  

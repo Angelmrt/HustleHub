@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
-import { CategoriesService } from '../../services/categories.service';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { CategoriesService, CategoryIcon } from '../../services/categories.service';
 
 @Component({
   selector: 'app-category-slider',
@@ -7,7 +7,7 @@ import { CategoriesService } from '../../services/categories.service';
   styleUrls: ['./category-slider.component.scss']
 })
 export class CategorySliderComponent implements OnInit {
-  icons: string[] = [];
+  icons: CategoryIcon[] = [];
 
   @ViewChild('slider', { static: false }) slider!: ElementRef;
 
@@ -46,7 +46,6 @@ export class CategorySliderComponent implements OnInit {
     window.removeEventListener('mouseup', this.onMouseUp);
   };
 
-  // Touch support
   onTouchStart(e: TouchEvent): void {
     this.isDragging = true;
     this.startX = e.touches[0].pageX - this.slider.nativeElement.offsetLeft;

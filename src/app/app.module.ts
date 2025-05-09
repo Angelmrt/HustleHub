@@ -15,6 +15,7 @@ import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { FooterComponent } from './core/components/footer/footer.component';
     HttpClientModule,
     FeaturesModule,
     NgbModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

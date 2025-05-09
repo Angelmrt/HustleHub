@@ -8,6 +8,8 @@ import { RandomEventsComponent } from '../core/components/random-events/random-e
 import { AboutComponent } from './about/about.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { CatheroComponent } from '../core/components/cathero/cathero.component';
+import { RouterModule } from '@angular/router';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 
 
 @NgModule({
@@ -18,10 +20,13 @@ import { CatheroComponent } from '../core/components/cathero/cathero.component';
     CategorySliderComponent,
     RandomEventsComponent,
     AboutComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    EventDetailComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
+
   ]
 })
 export class FeaturesModule { }

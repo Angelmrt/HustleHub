@@ -6,10 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { CategorySliderComponent } from './components/category-slider/category-slider.component';
-import { RandomEventsComponent } from './components/random-events/random-events.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CatheroComponent } from './components/cathero/cathero.component';
 
 
 @NgModule({

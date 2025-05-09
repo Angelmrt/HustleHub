@@ -18,14 +18,12 @@
     display: flex;
     flex-direction: row;
     height: 300px;
-    background-color: darken($background-color, 10%); 
+    background-color: $background-color-highlight; 
     border-radius: 0.75rem;
     overflow: hidden;
     transition: transform 0.2s ease;
 
-    &:hover {
-      transform: translateY(-5px);
-    }
+    
 
     .card-img-left {
       flex: 0 0 300px;

@@ -12,16 +12,13 @@ export class RandomEventsComponent implements OnInit {
   constructor(private categoriesService: CategoriesService) {}
 
   async ngOnInit(): Promise<void> {
-    const allEventsObj = await this.categoriesService.getAllEvents();
+    // Ya devuelve un array con la categoría inyectada en cada evento
+    const allEvents = await this.categoriesService.getAllEvents();
 
-    if (allEventsObj && typeof allEventsObj === 'object') {
-      const allEvents = Object.values(allEventsObj).flatMap((category: any) =>
-        category.items ? category.items : []
-      );
-
+    if (allEvents && Array.isArray(allEvents) && allEvents.length > 0) {
       this.randomEvents = this.shuffleArray(allEvents).slice(0, 5);
     } else {
-      console.warn('No events found');
+      console.warn('No se encontraron eventos.');
     }
   }
 

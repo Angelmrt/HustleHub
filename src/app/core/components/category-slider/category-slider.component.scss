@@ -3,7 +3,7 @@
 // 🔹 Fondo a todo el ancho
 .category-slider-wrapper {
   width: 100%;
-  background-color: darken($background-color, 10%);
+  background-color:$background-color-highlight;
   padding: 1rem 0;
 }
 
@@ -23,6 +23,10 @@
   min-width: 80px;
   transition: transform 0.2s ease;
 
+  a{
+    color: $accent-color;
+  text-decoration: none;
+  }
   &:hover {
     transform: scale(1.1);
   }

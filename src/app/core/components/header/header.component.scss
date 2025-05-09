@@ -11,7 +11,7 @@ header, .navbar {
 }
 
 header {
-  background-color: darken($background-color, 10%);
+  background-color: $background-color-highlight;
   color: $text-color;
   margin: 0;
 
