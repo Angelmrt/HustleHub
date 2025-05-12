@@ -18,10 +18,11 @@ export class HotEventsComponent implements OnInit {
   constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
-    this.categoriesService.getTopSubscribedEvents(10).then(events => { // ✅ Solo 10 eventos
+    this.categoriesService.getTopSubscribedEvents(10).then(events => { 
       this.topEvents = events;
-      this.totalPages = Math.ceil(this.topEvents.length / this.itemsPerPage); // ✅ Máximo 2 páginas
+      this.totalPages = Math.ceil(this.topEvents.length / this.itemsPerPage); 
       this.updatePagedEvents();
+      console.log(this.pagedEvents)
     });
   }
 
