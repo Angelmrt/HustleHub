@@ -9,6 +9,7 @@ import { FirebaseService } from 'src/app/core/services/firebase.service';
   styleUrls: ['./event-detail.component.scss']
 })
 export class EventDetailComponent implements OnInit {
+  isFavorite = false;
 
   event: any = null;
   eventId: string | null = null;
@@ -28,7 +29,9 @@ export class EventDetailComponent implements OnInit {
       this.isLoading = false;
     }
   }
-
+  toggleFavorite() {
+    this.isFavorite = !this.isFavorite;
+  }
   private getEventDetails(category: string, id: string): void {
     const db = this.firebaseService.getDatabaseInstance();
     const eventRef = ref(db, `events/${category}/items`);

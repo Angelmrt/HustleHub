@@ -1,8 +1,5 @@
 @use 'styles' as *;
 
-// Color rosa personalizado (añádelo también a tu archivo de variables si usas uno)
-
-
 .container {
   background-color: $background-color;
   color: $text-color;
@@ -18,16 +15,14 @@
     display: flex;
     flex-direction: row;
     height: 300px;
-    background-color: $background-color-highlight; 
+    background-color: $background-color-highlight;
     border-radius: 0.75rem;
     overflow: hidden;
     transition: transform 0.2s ease;
 
-    
-
     .card-img-left {
       flex: 0 0 300px;
-      width: 25%;
+      width: 300px;
       height: 100%;
       object-fit: cover;
     }

@@ -1,29 +1,34 @@
-<div class="container py-5 event-detail-container" *ngIf="!isLoading && !isError; else loadingOrError">
-  <div class="card shadow-lg rounded-4 p-4">
-      <h2 class="text-center mb-4 ">{{ event.title }}</h2>
-      
-      <img [src]="event.image" class="img-fluid rounded-3 mb-4 mx-auto d-block event-image" [alt]="event.title" />
-  
-      <p class="text-muted text-center">
-        <i class="fas fa-calendar-alt me-2"></i>{{ event.eventDate | date: 'longDate' }}
-      </p>
-      <small>
-        {{event.eventDate}}
-      </small>
-      <p class="lead ">{{ event.description }}</p>
-  
-      <div class="text-center mt-4">
-        <button class="btn btn-primary px-4 py-2 rounded-pill">
-          <i class="fas fa-heart me-2"></i> Añadir a Favoritos
-        </button>
+<div class="container py-5 event-detail-container">
+  <div class="card event-detail-card">
+    <div class="card-horizontal">
+      <img 
+        [src]="event.image" 
+        class="event-image" 
+        [alt]="event.title" 
+      />
+      <div class="card-body">
+        <h2 class="card-title">{{ event.title }}</h2>
+        <p class="text-muted">
+          <i class="fas fa-calendar-alt me-2"></i>{{ event.eventDate | date: 'longDate' }}
+        </p>
+        <p class="lead">{{ event.description }}</p>
+
+        <div class="text-center mt-4">
+          <button 
+            class="btn favorite-btn" 
+            (click)="toggleFavorite()"
+            [class.active]="isFavorite"
+          >
+            <i 
+              class="fas" 
+              [ngClass]="{
+                'fa-heart': isFavorite, 
+                'fa-heart-o': !isFavorite
+              }"
+            ></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-
-  <ng-template #loadingOrError>
-    <div class="text-center py-5">
-      <div *ngIf="isLoading" class="spinner-border text-primary" role="status"></div>
-      <p *ngIf="isError" class="text-danger mt-3">Evento no encontrado. <a routerLink="/">Volver a inicio</a></p>
-    </div>
-  </ng-template>
-  
+</div>
