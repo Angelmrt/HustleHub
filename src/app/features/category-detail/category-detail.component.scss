@@ -1,6 +1,5 @@
 @use 'styles' as *;
 
-// Color rosa personalizado (añádelo también a tu archivo de variables si usas uno)
 
 
 .container {
@@ -55,6 +54,7 @@
         &.description {
           max-height: 4.5em;
           overflow: hidden;
+          color: $text-color;
         }
       }
     }
@@ -108,3 +108,4 @@
     }
   }
 }
+
