@@ -1,34 +1,42 @@
-<div class="container py-5 event-detail-container">
-  <div class="card event-detail-card">
-    <div class="card-horizontal">
-      <img 
-        [src]="event.image" 
-        class="event-image" 
-        [alt]="event.title" 
-      />
-      <div class="card-body">
-        <h2 class="card-title">{{ event.title }}</h2>
-        <p class="text-muted">
-          <i class="fas fa-calendar-alt me-2"></i>{{ event.eventDate | date: 'longDate' }}
-        </p>
-        <p class="lead">{{ event.description }}</p>
+<div class="container py-5 event-detail-container" *ngIf="!isLoading && !isError; else loadingOrError">
+  <div class="card card-horizontal">
+    <img 
+      [src]="event.image" 
+      class="card-img-left" 
+      [alt]="event.title" 
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ event.title }}</h5>
+      <p class="card-text">
+        <i class="fas fa-calendar-alt me-2"></i> 
+        {{ event.eventDate | date: 'longDate' }}
+      </p>
+      <p class="card-text description">
+        {{ event.description }}
+      </p>
+      <p class="card-text">
+        <i class="fas fa-users me-2"></i> Suscripciones: {{ event.subscriptions }}
+      </p>
 
-        <div class="text-center mt-4">
-          <button 
-            class="btn favorite-btn" 
-            (click)="toggleFavorite()"
-            [class.active]="isFavorite"
-          >
-            <i 
-              class="fas" 
-              [ngClass]="{
-                'fa-heart': isFavorite, 
-                'fa-heart-o': !isFavorite
-              }"
-            ></i>
-          </button>
-        </div>
+      <div class="text-center mt-3">
+        <button 
+          class="btn favorite-btn" 
+          (click)="toggleFavorite()"
+          [class.active]="isFavorite"
+        >
+          <i 
+            class="fas" 
+            [ngClass]="{
+              'fa-heart': isFavorite, 
+              'fa-heart-o': !isFavorite
+            }"
+          ></i>
+        </button>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #loadingOrError>
+  <p class="text-center text-secondary">Cargando evento o ha ocurrido un error.</p>
+</ng-template>

@@ -16,7 +16,7 @@ export class IdleService {
   }
 
   private initListeners(): void {
-    ['click', 'mousemove', 'keypress', 'scroll'].forEach(event => {
+    ['click', 'keypress', 'scroll'].forEach(event => {
       this.router.navigate(['/']);
       document.addEventListener(event, () => this.resetTimer());
     });

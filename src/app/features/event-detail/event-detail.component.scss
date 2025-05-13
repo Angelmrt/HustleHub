@@ -1,82 +1,101 @@
 @use 'src/styles' as *;
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .event-detail-container {
-  .event-detail-card {
-    background: $background-color-highlight;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $background-color;
+  color: $text-color;
+
+  .card-horizontal {
+    display: flex;
+    flex-direction: row;
+    height: 40rem; 
+    width: 100%;
+    max-width: 70rem;
+    background-color: $background-color-highlight;
     border-radius: 0.75rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    color: $text-color;
-    padding: 2rem;
+    overflow: hidden;
+    transition: transform 0.2s ease;
 
-    .card-horizontal {
+    .card-img-left {
+      flex: 0 0 400px;
+      width: 400px;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-body {
       display: flex;
-      flex-direction: row;
-      gap: 2rem;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+      overflow: hidden;
 
-      .event-image {
-        flex: 0 0 300px;
-        width: 300px;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 1rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      .card-title {
+        font-size: 1.75rem;
+        font-weight: bold;
+        color: $primary-color;
+        margin-bottom: 0.5rem;
       }
 
-      .card-body {
-        flex: 1;
+      .card-text {
+        font-size: 1rem;
+        color: $text-secondary-color;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
 
-        .card-title {
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: $primary-color;
-          margin-bottom: 1rem;
-        }
-
-        .text-muted {
-          color: $text-secondary-color;
-          margin-bottom: 1rem;
-        }
-
-        .lead {
-          font-size: 1rem;
+        &.description {
+          max-height: 6em;
+          overflow: hidden;
           color: $text-color;
         }
+      }
 
-        .favorite-btn {
-          background: transparent;
-          border: 2px solid $primary-color;
-          border-radius: 50%;
-          color: $primary-color;
-          width: 50px;
-          height: 50px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.5rem;
-          transition: background-color 0.3s ease, color 0.3s ease;
+      .favorite-btn {
+        background: transparent;
+        border: 2px solid $primary-color;
+        border-radius: 50%;
+        color: $primary-color;
+        width: 50px;
+        height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
 
-          &:hover {
-            background-color: rgba($primary-color, 0.1);
-          }
+        &:hover {
+          background-color: rgba($primary-color, 0.1);
+        }
 
-          &.active {
-            background-color: $primary-color;
-            color: #000;
-          }
+        &.active {
+          background-color: $primary-color;
+          color: #000;
         }
       }
     }
   }
 
   @media (max-width: 768px) {
-    .event-detail-card .card-horizontal {
+    .card-horizontal {
       flex-direction: column;
-      text-align: center;
+      height: auto;
 
-      .event-image {
+      .card-img-left {
         width: 100%;
-        height: auto;
+        height: 250px;
+      }
+
+      .card-body {
+        padding: 1.5rem;
       }
     }
   }
