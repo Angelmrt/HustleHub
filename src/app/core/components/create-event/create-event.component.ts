@@ -59,6 +59,9 @@ export class CreateEventComponent implements OnInit {
     await set(newRef, eventData);
     this.activeModal.close();
   }
+  
 }
-
+close() {
+  this.activeModal.close();
+}
 }

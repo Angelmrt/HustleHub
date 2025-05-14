@@ -46,7 +46,8 @@ export class UserPanelComponent {
   openCreateEventModal(): void {
     this.modalService.open(CreateEventComponent, {
       centered: true,
-      backdrop: 'static',
+      backdrop: true,
+      keyboard: true,
       size: 'lg'
     });
   }
