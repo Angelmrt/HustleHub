@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GenericModalComponent } from './components/generic-modal/generic-modal.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { CreateEventComponent } from './components/create-event/create-event.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -15,12 +17,14 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
         LoginComponent,
         UserPanelComponent,
         UserProfileComponent,
-        ChangePasswordComponent
+        ChangePasswordComponent,
+        CreateEventComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    
+    ReactiveFormsModule,
+    NgbModule
   ]
 })
 export class CoreModule { }
