@@ -7,28 +7,48 @@
     />
     <div class="card-body">
       <h5 class="card-title">{{ event.title }}</h5>
+
       <p class="card-text">
         <i class="fas fa-calendar-alt me-2"></i> 
         {{ event.eventDate | date: 'longDate' }}
       </p>
+
       <p class="card-text description">
         {{ event.description }}
       </p>
+
       <p class="card-text">
-        <i class="fas fa-users me-2"></i> Suscripciones: {{ event.subscriptions }}
+        <i class="fas fa-users me-2"></i> 
+        Suscripciones: {{ event.subscriptions || 0 }}
       </p>
 
-      <div class="text-center mt-3">
+      <div class="text-center mt-3 d-flex justify-content-center gap-3">
         <button 
           class="btn favorite-btn" 
           (click)="toggleFavorite()"
           [class.active]="isFavorite"
+          aria-label="Favorito"
         >
           <i 
             class="fas" 
             [ngClass]="{
               'fa-heart': isFavorite, 
               'fa-heart-o': !isFavorite
+            }"
+          ></i>
+        </button>
+
+        <button 
+          class="btn subscribe-btn" 
+          (click)="toggleSubscription()"
+          [class.active]="isSubscribed"
+          [attr.aria-label]="isSubscribed ? 'Cancelar suscripción' : 'Suscribirse'"
+        >
+          <i 
+            class="fas" 
+            [ngClass]="{
+              'fa-bell-slash': isSubscribed, 
+              'fa-bell': !isSubscribed
             }"
           ></i>
         </button>

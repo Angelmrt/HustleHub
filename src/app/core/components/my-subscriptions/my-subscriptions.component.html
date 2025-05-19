@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h4 class="modal-title">Mis Subscripciones</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+  </div>
+  
+  <div class="modal-body">
+    <div *ngIf="isLoading" class="text-center">
+      <div class="spinner-border text-light" role="status"></div>
+    </div>
+  
+    <div *ngIf="!isLoading && isError" class="alert alert-danger text-center">
+      No se pudieron cargar las suscripciones.
+    </div>
+  
+    <div *ngIf="!isLoading && !isError">
+      <div *ngIf="eventsByCategory | keyvalue as groupedCategories; else noSubscriptions">
+        <div *ngFor="let group of groupedCategories" class="mb-4">
+          <h5 class="mb-3 text-uppercase">{{ group.key }}</h5>
+          <div *ngFor="let event of group.value" class="card mb-2 p-3">
+            <a [routerLink]="['/event', group.key, event.id]" class="text-decoration-none text-reset">
+              <div class="row align-items-center text-center text-md-start">
+                <div class="col-12 col-md-4 fw-bold">{{ event.title }}</div>
+                <div class="col-12 col-md-4">Categoría: {{ event.category }}</div>
+                <div class="col-12 col-md-4">Suscripciones: {{ event.subscriptions || 0 }}</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <ng-template #noSubscriptions>
+        <div class="alert alert-warning text-center">
+          No estás suscrito a ningún evento.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  

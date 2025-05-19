@@ -1,6 +1,7 @@
 @use 'src/styles' as *;
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -17,7 +18,7 @@ html, body {
   .card-horizontal {
     display: flex;
     flex-direction: row;
-    height: 40rem; 
+    height: 40rem;
     width: 100%;
     max-width: 70rem;
     background-color: $background-color-highlight;
@@ -59,26 +60,20 @@ html, body {
         }
       }
 
-      .favorite-btn {
-        background: transparent;
-        border: 2px solid $primary-color;
-        border-radius: 50%;
-        color: $primary-color;
-        width: 50px;
-        height: 50px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+      .favorite-btn,
+      .subscribe-btn {
+        border: none;
+        background: none;
         font-size: 1.5rem;
-        transition: background-color 0.3s ease, color 0.3s ease;
-
-        &:hover {
-          background-color: rgba($primary-color, 0.1);
-        }
+        color: $text-color;
 
         &.active {
-          background-color: $primary-color;
-          color: #000;
+          color: $accent-color;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+          transition: transform 0.2s ease-in-out;
         }
       }
     }

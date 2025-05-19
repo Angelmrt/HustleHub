@@ -5,6 +5,7 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { ChangePasswordComponent } from '../change-password/change-password.component';
 import { CreateEventComponent } from '../create-event/create-event.component';
 import { MyEventsComponent } from '../my-events/my-events.component';
+import { MySubscriptionsComponent } from '../my-subscriptions/my-subscriptions.component';
 
 @Component({
   selector: 'app-user-panel',
@@ -61,6 +62,15 @@ export class UserPanelComponent {
       size: 'lg'
     });
 
+    modalRef.componentInstance.userId = userId;
+  }
+  openMySubscriptionsModal(userId: string): void {
+    const modalRef = this.modalService.open(MySubscriptionsComponent, {
+      centered: true,
+      backdrop: true,
+      size: 'lg'
+    });
+  
     modalRef.componentInstance.userId = userId;
   }
 }

@@ -10,6 +10,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyEventsComponent } from './components/my-events/my-events.component';
 import { RouterModule } from '@angular/router';
+import { MySubscriptionsComponent } from './components/my-subscriptions/my-subscriptions.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
         UserProfileComponent,
         ChangePasswordComponent,
         CreateEventComponent,
-        MyEventsComponent
+        MyEventsComponent,
+        MySubscriptionsComponent
   ],
   imports: [
     CommonModule,

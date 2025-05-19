@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ref, get } from 'firebase/database';
 import { FirebaseService } from 'src/app/core/services/firebase.service';
+import { SubscriptionService } from 'src/app/core/services/subscription.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-event-detail',
@@ -10,53 +12,84 @@ import { FirebaseService } from 'src/app/core/services/firebase.service';
 })
 export class EventDetailComponent implements OnInit {
   isFavorite = false;
+  isSubscribed = false;
 
   event: any = null;
   eventId: string | null = null;
+  category: string | null = null;
+
+  userId: string = '';
   isLoading = true;
   isError = false;
 
-  constructor(private route: ActivatedRoute, private firebaseService: FirebaseService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private firebaseService: FirebaseService,
+    private subscriptionService: SubscriptionService,
+    private auth: Auth
+  ) {}
 
-  ngOnInit(): void {
-    const category = this.route.snapshot.paramMap.get('category');
+  async ngOnInit(): Promise<void> {
+    this.category = this.route.snapshot.paramMap.get('category');
     this.eventId = this.route.snapshot.paramMap.get('id');
 
-    if (category && this.eventId) {
-      this.getEventDetails(category, this.eventId);
+    const user = this.auth.currentUser;
+    this.userId = user?.uid || '';
+
+    if (this.category && this.eventId) {
+      await this.getEventDetails(this.category, this.eventId);
+      await this.checkSubscription();
     } else {
       this.isError = true;
       this.isLoading = false;
     }
   }
-  toggleFavorite() {
+
+  toggleFavorite(): void {
     this.isFavorite = !this.isFavorite;
   }
-  private getEventDetails(category: string, id: string): void {
+
+  async toggleSubscription(): Promise<void> {
+    if (!this.userId || !this.eventId || !this.category) return;
+
+    if (this.isSubscribed) {
+      await this.subscriptionService.unsubscribeFromEvent(this.userId, this.eventId, this.category);
+    } else {
+      await this.subscriptionService.subscribeToEvent(this.userId, this.eventId, this.category);
+    }
+
+    this.isSubscribed = !this.isSubscribed;
+  }
+
+  private async checkSubscription(): Promise<void> {
+    if (!this.userId || !this.eventId || !this.category) return;
+
+    const subscriptions = await this.subscriptionService.getUserSubscriptions(this.userId);
+    this.isSubscribed = subscriptions[this.category]?.includes(this.eventId) || false;
+  }
+
+  private async getEventDetails(category: string, id: string): Promise<void> {
     const db = this.firebaseService.getDatabaseInstance();
     const eventRef = ref(db, `events/${category}/items`);
 
-    get(eventRef)
-      .then(snapshot => {
-        if (snapshot.exists()) {
-          const items = snapshot.val();
-          const found = Object.values(items).find((event: any) => event.id === id);
-
-          if (found) {
-            this.event = found;
-          } else {
-            this.isError = true; 
-          }
+    try {
+      const snapshot = await get(eventRef);
+      if (snapshot.exists()) {
+        const items = snapshot.val();
+        const found = Object.values(items).find((event: any) => event.id === id);
+        if (found) {
+          this.event = found;
         } else {
-          this.isError = true; 
+          this.isError = true;
         }
-      })
-      .catch(error => {
-        console.error('Error fetching event:', error);
+      } else {
         this.isError = true;
-      })
-      .finally(() => {
-        this.isLoading = false;
-      });
+      }
+    } catch (error) {
+      console.error('Error fetching event:', error);
+      this.isError = true;
+    } finally {
+      this.isLoading = false;
+    }
   }
 }
