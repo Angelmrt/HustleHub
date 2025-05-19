@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { NgbOffcanvasRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbOffcanvasRef, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../../services/auth.service';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { ChangePasswordComponent } from '../change-password/change-password.component';
 import { CreateEventComponent } from '../create-event/create-event.component';
-
+import { MyEventsComponent } from '../my-events/my-events.component';
 
 @Component({
   selector: 'app-user-panel',
@@ -18,8 +18,7 @@ export class UserPanelComponent {
   
   constructor(
     private authService: AuthService,
-    private modalService: NgbModal,
-    
+    private modalService: NgbModal
   ) {}
 
   logout() {
@@ -35,6 +34,7 @@ export class UserPanelComponent {
       keyboard: true
     });
   }
+
   openChangePassword() {
     this.modalService.open(ChangePasswordComponent, {
       centered: true,
@@ -43,6 +43,7 @@ export class UserPanelComponent {
       keyboard: true
     });
   }
+
   openCreateEventModal(): void {
     this.modalService.open(CreateEventComponent, {
       centered: true,
@@ -50,5 +51,16 @@ export class UserPanelComponent {
       keyboard: true,
       size: 'lg'
     });
+  }
+
+  openMyEventModal(userId: string): void {
+    const modalRef: NgbModalRef = this.modalService.open(MyEventsComponent, {
+      centered: true,
+      backdrop: true,
+      keyboard: true,
+      size: 'lg'
+    });
+
+    modalRef.componentInstance.userId = userId;
   }
 }

@@ -34,7 +34,7 @@ export class CreateEventComponent implements OnInit {
   }
   
   private async loadCategories(): Promise<void> {
-    this.categories = await this.categoriesService.getCategoryIcons();
+    this.categories = (await this.categoriesService.getCategoryIcons());
   }
 
   async onSubmit(): Promise<void> {

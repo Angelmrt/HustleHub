@@ -8,6 +8,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MyEventsComponent } from './components/my-events/my-events.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -18,13 +20,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         UserPanelComponent,
         UserProfileComponent,
         ChangePasswordComponent,
-        CreateEventComponent
+        CreateEventComponent,
+        MyEventsComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    RouterModule
   ]
 })
 export class CoreModule { }

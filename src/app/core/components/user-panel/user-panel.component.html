@@ -1,6 +1,6 @@
 <div class="d-flex flex-column justify-content-between h-100 p-4">
 
-  
+
   <div class="text-start">
     <div *ngIf="user$ | async as user">
       <h5 class="mb-0 fw-bold">{{ user.displayName || 'Usuario' }}</h5>
@@ -8,23 +8,25 @@
     </div>
 
     <hr class="my-4">
-
-    <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start" (click)="openProfile()">Mi perfil</button>
-    <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start" (click)="openChangePassword()">Modificar datos</button>
-    <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start">Mis Favoritos</button>
-    <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start">Mis Subscripciones</button>
-    <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start">Mis Eventos</button>
-    <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start" (click)="openCreateEventModal()">Crear Evento </button>
-
+    <div *ngIf="user$ | async as user">
+      <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start" (click)="openProfile()">Mi perfil</button>
+      <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start" (click)="openChangePassword()">Modificar
+        datos</button>
+      <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start">Mis Favoritos</button>
+      <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start">Mis Subscripciones</button>
+      <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start" (click)="openMyEventModal(user.uid)">Mis
+        Eventos</button>
+      <button class="btn border-0 text-dark w-100 mb-3 fw-bold text-start" (click)="openCreateEventModal()">Crear Evento
+      </button>
+    </div>
 
 
 
   </div>
 
- 
+
   <div class="mt-auto text-start">
     <button class="btn btn-danger px-5" (click)="logout()">Cerrar sesión</button>
   </div>
 
 </div>
-

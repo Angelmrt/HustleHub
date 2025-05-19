@@ -1,0 +1,32 @@
+<div class="container py-5 my-events-container">
+    <h2 class="text-center mb-4">Mis Eventos</h2>
+  
+    <div *ngIf="isLoading" class="text-center">
+      <div class="spinner-border text-light" role="status"></div>
+    </div>
+  
+    <div *ngIf="isError && !isLoading" class="alert alert-danger text-center">
+      No se pudieron cargar tus eventos. ¿Estás logueado?
+    </div>
+  
+    <div *ngIf="!isLoading && !isError">
+      <div *ngIf="myEvents.length > 0; else noEvents">
+        <div *ngFor="let event of myEvents" class="card mb-3 p-3">
+          <a [routerLink]="['/event', event.category, event.id]" class="text-decoration-none text-reset">
+            <div class="row align-items-center text-center text-md-start">
+              <div class="col-12 col-md-4 fw-bold">{{ event.title }}</div>
+              <div class="col-12 col-md-4">Categoría: {{ event.category }}</div>
+              <div class="col-12 col-md-4">Suscripciones: {{ event.subscriptions || 0 }}</div>
+            </div>
+          </a>
+        </div>
+      </div>
+  
+      <ng-template #noEvents>
+        <div class="alert alert-warning text-center">
+          Aún no has creado ningún evento.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  

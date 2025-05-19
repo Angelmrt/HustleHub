@@ -74,5 +74,8 @@ export class CategoriesService {
       .sort((a, b) => (b.subscriptions || 0) - (a.subscriptions || 0))
       .slice(0, limit);
   }
-  
+  async getEventsByUser(userId: string): Promise<any[]> {
+    const allEvents = await this.getAllEvents();
+    return allEvents.filter(event => event.createdBy === userId);
+  }
 }
