@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Database, ref, get } from '@angular/fire/database';
 import { SubscriptionService } from 'src/app/core/services/subscription.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-subscriptions',
@@ -16,7 +18,9 @@ export class MySubscriptionsComponent implements OnInit {
 
   constructor(
     private subscriptionService: SubscriptionService,
-    private db: Database
+    private db: Database,
+    public activeModal: NgbActiveModal,
+    private router: Router
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -57,5 +61,10 @@ export class MySubscriptionsComponent implements OnInit {
     } finally {
       this.isLoading = false;
     }
+  }
+
+  navigateToEvent(category: string, id: string): void {
+    this.activeModal.close();
+    this.router.navigate(['/event', category, id]);
   }
 }

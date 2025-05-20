@@ -4,6 +4,7 @@ import { ref, get } from 'firebase/database';
 import { FirebaseService } from 'src/app/core/services/firebase.service';
 import { SubscriptionService } from 'src/app/core/services/subscription.service';
 import { Auth } from '@angular/fire/auth';
+import { FavoriteService } from 'src/app/core/services/favorite.service';
 
 @Component({
   selector: 'app-event-detail',
@@ -26,6 +27,7 @@ export class EventDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private firebaseService: FirebaseService,
     private subscriptionService: SubscriptionService,
+    private favoriteService: FavoriteService,
     private auth: Auth
   ) {}
 
@@ -39,14 +41,30 @@ export class EventDetailComponent implements OnInit {
     if (this.category && this.eventId) {
       await this.getEventDetails(this.category, this.eventId);
       await this.checkSubscription();
+      await this.checkFavorite();
     } else {
       this.isError = true;
       this.isLoading = false;
     }
   }
 
-  toggleFavorite(): void {
+  async toggleFavorite(): Promise<void> {
+    if (!this.userId || !this.eventId || !this.category) return;
+  
+    if (this.isFavorite) {
+      await this.favoriteService.removeFromFavorites(this.userId, this.eventId, this.category);
+    } else {
+      await this.favoriteService.addToFavorites(this.userId, this.eventId, this.category);
+    }
+  
     this.isFavorite = !this.isFavorite;
+  }
+  
+  private async checkFavorite(): Promise<void> {
+    if (!this.userId || !this.eventId || !this.category) return;
+  
+    const favorites = await this.favoriteService.getUserFavorites(this.userId);
+    this.isFavorite = favorites[this.category]?.includes(this.eventId) || false;
   }
 
   async toggleSubscription(): Promise<void> {

@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h4 class="modal-title">Mis Favoritos</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+  </div>
+  
+  <div class="modal-body">
+    <div *ngIf="isLoading" class="text-center">
+      <div class="spinner-border text-light" role="status"></div>
+    </div>
+  
+    <div *ngIf="!isLoading && isEmpty" class="alert alert-warning text-center">
+      No tienes eventos marcados como favoritos.
+    </div>
+  
+    <div *ngIf="!isLoading && !isEmpty">
+      <div *ngIf="favoritesByCategory | keyvalue as groupedFavorites; else noFavorites">
+        <div *ngFor="let group of groupedFavorites" class="mb-4">
+          <h5 class="mb-3 text-uppercase">{{ group.key }}</h5>
+  
+          <div *ngFor="let event of group.value" class="card mb-2 p-3">
+            <a 
+              (click)="navigateToEvent(group.key, event.id)" 
+              class="text-decoration-none text-reset cursor-pointer"
+            >
+              <div class="row align-items-center text-center text-md-start">
+                <div class="col-12 col-md-4 fw-bold">{{ event.title }}</div>
+                <div class="col-12 col-md-4">
+                  <i class="fas fa-calendar-alt me-2"></i>
+                  {{ event.eventDate | date: 'longDate' }}
+                </div>
+                <div class="col-12 col-md-4">
+                  <i class="fas fa-users me-2"></i>
+                  Suscripciones: {{ event.subscriptions || 0 }}
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <ng-template #noFavorites>
+        <div class="alert alert-warning text-center">
+          No tienes eventos marcados como favoritos.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  

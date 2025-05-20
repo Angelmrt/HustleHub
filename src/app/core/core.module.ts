@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyEventsComponent } from './components/my-events/my-events.component';
 import { RouterModule } from '@angular/router';
 import { MySubscriptionsComponent } from './components/my-subscriptions/my-subscriptions.component';
+import { MyFavoritesComponent } from './components/my-favorites/my-favorites.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MySubscriptionsComponent } from './components/my-subscriptions/my-subsc
         ChangePasswordComponent,
         CreateEventComponent,
         MyEventsComponent,
-        MySubscriptionsComponent
+        MySubscriptionsComponent,
+        MyFavoritesComponent
   ],
   imports: [
     CommonModule,

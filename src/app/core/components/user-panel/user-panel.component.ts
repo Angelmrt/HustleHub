@@ -6,6 +6,7 @@ import { ChangePasswordComponent } from '../change-password/change-password.comp
 import { CreateEventComponent } from '../create-event/create-event.component';
 import { MyEventsComponent } from '../my-events/my-events.component';
 import { MySubscriptionsComponent } from '../my-subscriptions/my-subscriptions.component';
+import { MyFavoritesComponent } from '../my-favorites/my-favorites.component';
 
 @Component({
   selector: 'app-user-panel',
@@ -16,11 +17,11 @@ export class UserPanelComponent {
   @Input() offcanvasRef!: NgbOffcanvasRef;
 
   user$ = this.authService.currentUser$;
-  
+
   constructor(
     private authService: AuthService,
     private modalService: NgbModal
-  ) {}
+  ) { }
 
   logout() {
     this.authService.logout();
@@ -70,7 +71,15 @@ export class UserPanelComponent {
       backdrop: true,
       size: 'lg'
     });
-  
+
     modalRef.componentInstance.userId = userId;
+  }
+  openMyFavoritesModal(): void {
+    this.modalService.open(MyFavoritesComponent, {
+      centered: true,
+      backdrop: true,
+      keyboard: true,
+      size: 'lg'
+    });
   }
 }
