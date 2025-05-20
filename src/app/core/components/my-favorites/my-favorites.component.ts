@@ -58,4 +58,19 @@ export class MyFavoritesComponent implements OnInit {
     this.activeModal.close();
     this.router.navigate(['/event', category, id]);
   }
+
+  async removeFavorite(category: string, eventId: string): Promise<void> {
+    if (!this.userId) return;
+
+    await this.favoriteService.removeFavorite(this.userId, eventId, category);
+
+    const updatedList = this.favoritesByCategory[category].filter(event => event.id !== eventId);
+    if (updatedList.length > 0) {
+      this.favoritesByCategory[category] = updatedList;
+    } else {
+      delete this.favoritesByCategory[category];
+    }
+
+    this.isEmpty = Object.keys(this.favoritesByCategory).length === 0;
+  }
 }

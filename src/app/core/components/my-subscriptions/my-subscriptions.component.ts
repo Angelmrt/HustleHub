@@ -67,4 +67,17 @@ export class MySubscriptionsComponent implements OnInit {
     this.activeModal.close();
     this.router.navigate(['/event', category, id]);
   }
+
+  async removeSubscription(category: string, eventId: string): Promise<void> {
+    await this.subscriptionService.unsubscribeFromEvent(this.userId, eventId, category);
+
+    const updatedList = this.eventsByCategory[category].filter(event => event.id !== eventId);
+    if (updatedList.length > 0) {
+      this.eventsByCategory[category] = updatedList;
+    } else {
+      delete this.eventsByCategory[category];
+    }
+
+    this.isError = Object.keys(this.eventsByCategory).length === 0;
+  }
 }

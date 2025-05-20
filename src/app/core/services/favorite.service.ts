@@ -29,4 +29,9 @@ export class FavoriteService {
 
     return result;
   }
+
+  // Alias público más intuitivo (opcional)
+  async removeFavorite(userId: string, eventId: string, category: string): Promise<void> {
+    return this.removeFromFavorites(userId, eventId, category);
+  }
 }

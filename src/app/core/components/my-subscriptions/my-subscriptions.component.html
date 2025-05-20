@@ -9,7 +9,7 @@
   </div>
 
   <div *ngIf="!isLoading && isError" class="alert alert-danger text-center">
-    No se pudieron cargar las suscripciones.
+    No estás suscrito a ningún evento.
   </div>
 
   <div *ngIf="!isLoading && !isError">
@@ -18,16 +18,29 @@
         <h5 class="mb-3 text-uppercase">{{ group.key }}</h5>
 
         <div *ngFor="let event of group.value" class="card mb-2 p-3">
-          <a 
-            (click)="navigateToEvent(group.key, event.id)" 
-            class="text-decoration-none text-reset cursor-pointer"
-          >
-            <div class="row align-items-center text-center text-md-start">
-              <div class="col-12 col-md-4 fw-bold">{{ event.title }}</div>
-              <div class="col-12 col-md-4">Categoría: {{ event.category }}</div>
-              <div class="col-12 col-md-4">Suscripciones: {{ event.subscriptions || 0 }}</div>
-            </div>
-          </a>
+          <div class="d-flex justify-content-between align-items-center">
+            <a
+              (click)="navigateToEvent(group.key, event.id)"
+              class="text-decoration-none text-reset cursor-pointer w-100"
+            >
+              <div class="row align-items-center text-center text-md-start">
+                <div class="col-12 col-md-4 fw-bold">{{ event.title }}</div>
+                <div class="col-12 col-md-4">Categoría: {{ event.category }}</div>
+                <div class="col-12 col-md-4">
+                  <i class="fas fa-users me-2"></i>
+                  Suscripciones: {{ event.subscriptions || 0 }}
+                </div>
+              </div>
+            </a>
+
+            <button
+              class="btn text-danger ms-2"
+              (click)="removeSubscription(group.key, event.id)"
+              matTooltip="Cancelar suscripción"
+            >
+              <i class="fas fa-bell-slash"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
