@@ -1,6 +1,5 @@
 <app-cathero [categoryId]="categoryId"></app-cathero>
 <div class="container py-5">
-  <!-- <h2 class="mb-4 text-center">{{ categoryId | titlecase }}</h2> -->
 
   <div *ngIf="events.length > 0; else noEvents" class="row g-4">
     <div class="col-12" *ngFor="let event of pagedEvents">
@@ -23,7 +22,6 @@
       </div>
     </div>
 
-    <!-- Paginación -->
     <nav *ngIf="events.length > itemsPerPage" class="mt-4">
       <ul class="pagination">
         <li class="page-item" [class.disabled]="page === 1">

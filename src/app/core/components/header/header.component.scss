@@ -57,8 +57,8 @@ header {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0; // Alineado justo debajo del botón
-    transform: translateY(10px); // Baja suavemente desde arriba
+    left: 0; 
+    transform: translateY(10px); 
     background-color: $background-color;
     border: none;
     min-width: 12rem;

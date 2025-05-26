@@ -12,7 +12,6 @@ export class RandomEventsComponent implements OnInit {
   constructor(private categoriesService: CategoriesService) {}
 
   async ngOnInit(): Promise<void> {
-    // Ya devuelve un array con la categoría inyectada en cada evento
     const allEvents = await this.categoriesService.getAllEvents();
 
     if (allEvents && Array.isArray(allEvents) && allEvents.length > 0) {

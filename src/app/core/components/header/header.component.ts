@@ -14,7 +14,7 @@ import { CategoriesService } from '../../services/categories.service'; // ✅ si
 export class HeaderComponent implements OnInit {
 
   @ViewChild('modalHost') modalHost!: GenericModalComponent;
-  categories: string[] = []; // ✅ usamos string[]
+  categories: string[] = []; 
 
   constructor(
     private modalService: NgbModal,

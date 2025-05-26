@@ -14,7 +14,6 @@ export class CategoryDetailComponent implements OnInit {
   page: number = 1;
   itemsPerPage: number = 5;
 
-  // Exponer Math al template
   Math = Math;
 
   constructor(
