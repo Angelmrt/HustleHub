@@ -1,53 +1,52 @@
-# Info
-## First Steps 
-Lo primero sera la creacion en firebase de una estructura de datos
-Despues consumir estos datos para ver como se devuelven y como transformarlos para despues mostrarlos
+# 🚀 Hustle HUB
 
-## 07/04/2025 01/04/2025
-done ->
-        Firebase integrado en el proyecto
-        Integración continua implementada
-        Despliegue Continuo ok
-        Hosting funcionando
-        Estructura correcta del proyecto 
-        Ruta para not Found Page (404)
-        Migración a angular 16 
-esta semana -> 
-                Auth sin implementar
-                BBDD pendiente de insertar estructura y datos
-                Primeras peticiones para transformar datos
-                Header
+**Hustle HUB** es una aplicación web desarrollada con Angular que permite descubrir, guardar y gestionar eventos por categoría. Diseñada para ser responsiva, moderna y funcional, combina autenticación con Firebase, almacenamiento de datos en tiempo real y una experiencia de usuario fluida.
 
+---
 
+## 🛠️ Tecnologías utilizadas
 
+- Angular 16
+- Firebase (Authentication, Realtime Database, Hosting)
+- Bootstrap 5
+- ngBootstrap
+- SCSS modular
+- GitHub Actions (para CI/CD)
+- FontAwesome & Pexels (para íconos e imágenes)
 
+---
 
+## 📁 Estructura del proyecto
 
+```bash
+src/
+├── app/
+│   ├── core/            
+│   │   ├── components/
+│   │   ├── services/
+│   │   └── core.module.ts
+│   ├── features/         
+│   ├── shared/             
+│   ├── app-routing.module.ts
+│   ├── app.component.html
+│   ├── app.component.scss
+│   ├── app.component.ts
+│   ├── app.module.ts
+│   └── firebase.ts       
+├── assets/                 
+├── environments/           
+│   └── environment.ts
+├── _variables.scss         
+├── favicon.ico
+├── index.html
+├── main.ts
+└── polyfills.ts
+```
+# Clonar repositorio
+git clone https://github.com/Angelmrt/HustleHub
 
-# HustleHub
+# Instalar dependencias
+npm install
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.9.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Iniciar el servidor de desarrollo
+npm start 
